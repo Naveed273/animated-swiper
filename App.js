@@ -47,8 +47,8 @@ const DATA = [
   },
 ];
 
-class App extends React.Component {
-  renderCard(item) {
+const App = () => {
+  const renderCard = (item) => {
     return (
       <Card key={item.id}>
         <Card.Title>{item.text}</Card.Title>
@@ -66,9 +66,9 @@ class App extends React.Component {
         />
       </Card>
     );
-  }
+  };
   //this function will be called when all the cards are swiped out.
-  renderNoMoreCards() {
+  const renderNoMoreCards = () => {
     return (
       <Card>
         <Card.Title>All Done!</Card.Title>
@@ -76,22 +76,20 @@ class App extends React.Component {
         <Button backgroundColor="#03A9F4" title="Thank you!" />
       </Card>
     );
-  }
+  };
 
-  render() {
-    return (
-      <SafeAreaView style={styles.container}>
-        {/* <Ball />*/}
+  return (
+    <SafeAreaView style={styles.container}>
+      {/* <Ball />*/}
 
-        <Deck
-          data={DATA}
-          renderCard={this.renderCard}
-          renderNoMoreCards={this.renderNoMoreCards}
-        />
-      </SafeAreaView>
-    );
-  }
-}
+      <Deck
+        data={DATA}
+        renderCard={renderCard}
+        renderNoMoreCards={renderNoMoreCards}
+      />
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
